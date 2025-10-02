@@ -1,0 +1,202 @@
+y-website/
+│── index.html
+│── style.css
+│── script.js
+│── README.md
+│── LICENSE
+│── .gitignore
+└── .github/workflows/deploy.yml   (optional: auto-deploy to GitHub Pages)
+1. index.html
+html
+Copy code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Website</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Welcome to My Website</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h2>Hello World!</h2>
+      <p>This is a simple website starter built with HTML, CSS, and JavaScript.</p>
+      <button onclick="showMessage()">Click Me</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 My Website</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+2. style.css
+css
+Copy code
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Base styles */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background: #f4f4f9;
+  color: #333;
+  padding: 0;
+  margin: 0;
+}
+
+header {
+  background: #333;
+  color: #fff;
+  padding: 1rem;
+}
+
+header h1 {
+  margin-bottom: 0.5rem;
+}
+
+nav a {
+  color: #fff;
+  margin-right: 1rem;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.hero {
+  padding: 2rem;
+  text-align: center;
+  background: #fff;
+  margin: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: #0077ff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0059b3;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #222;
+  color: #bbb;
+}
+3. script.js
+javascript
+Copy code
+function showMessage() {
+  alert("Hello! Thanks for clicking the button 🚀");
+}
+4. README.md
+markdown
+Copy code
+# My Website
+
+A simple starter project using **HTML, CSS, and JavaScript**.
+
+## 🌐 Live Demo
+Once deployed, your website will be available at:
+https://<your-username>.github.io/my-website/
+
+## 🚀 Quick Start
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/<your-username>/my-website.git
+   cd my-website
+Open index.html in your browser.
+
+📂 Project Structure
+index.html — main page
+
+style.css — site styles
+
+script.js — interactive JavaScript
+
+.github/workflows/deploy.yml — auto-deploy via GitHub Pages
+
+LICENSE — project license
+
+🛠 Deployment
+This project is configured for GitHub Pages.
+Enable it under your repo settings → Pages → Branch: main, folder: / (root).
+
+yaml
+Copy code
+
+---
+
+## 5. `.gitignore`
+OS files
+.DS_Store
+Thumbs.db
+
+IDE
+.vscode/
+.idea/
+
+yaml
+Copy code
+
+---
+
+## 6. `LICENSE` (MIT Example)
+```text
+MIT License
+
+Copyright (c) 2025 Your Name
+
+Permission is hereby granted, free of charge, to any person obtaining a copy...
+7. GitHub Pages Deployment (Optional CI/CD)
+.github/workflows/deploy.yml
+
+yaml
+Copy code
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
